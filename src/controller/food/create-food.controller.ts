@@ -2,12 +2,12 @@ import { Request, Response } from "express";
 import { Food } from "../../model/food";
 import { FoodOrder } from "../../model/foodOrder";
 
-
 export const createFood = async (req: Request, res: Response) => {
+  console.log("hi");
+
   const { foodName, price, image, ingredients, category } = req.body;
   try {
-    const food = await new Food
-    ({
+    const food = await new Food({
       foodName,
       price,
       image,
