@@ -12,7 +12,7 @@ export const login = async (req: Request, res: Response) => {
     });
 
     if (!user) {
-      res.status(400).json({ message: "try again" });
+      res.status(400).json({ message: "Нууц, үг email шалгаарай" });
       return;
     }
 
