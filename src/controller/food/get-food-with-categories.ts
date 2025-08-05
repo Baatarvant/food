@@ -1,8 +1,13 @@
 import { Request, Response } from "express";
 import { Food } from "../../model/food";
 import { FoodOrder } from "../../model/foodOrder";
+import { GetUserAuthInfoRequest } from "../../middleware/jw-verify";
+import { User } from "../../model/user";
 
-export const getFoodsWithCategories = async (_req: Request, res: Response) => {
+export const getFoodsWithCategories = async (
+  req: GetUserAuthInfoRequest,
+  res: Response
+) => {
   try {
     const foodsWithCategories = await Food.aggregate([
       {

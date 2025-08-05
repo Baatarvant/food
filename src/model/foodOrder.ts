@@ -19,6 +19,7 @@ const foodOrderSchema = new Schema(
       default: FoodOrderStatusEnum.PENDING,
       enum: Object.values(FoodOrderStatusEnum),
     },
+    userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   },
   { timestamps: true }
 );

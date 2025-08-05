@@ -3,6 +3,8 @@ import { User } from "../../model/user";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+export const secret = "super-secret-123";
+
 export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
@@ -21,7 +23,6 @@ export const login = async (req: Request, res: Response) => {
     if (isMatch) {
       const data = { userId: user._id, role: user.role, email: user.email };
 
-      const secret = "super-secret-123";
       const hour = Math.floor(Date.now() / 1000) + 60 * 60;
 
       const accessToken = jwt.sign({ exp: hour, data }, secret);
